@@ -130,6 +130,11 @@ SDL_GLContext PSL1GHT_GL_CreateContext(_THIS, SDL_Window *window)
     _this->gl_data->context = context;
     _this->gl_data->surface = surface;
 
+    // Set profile version properly, set to 3.2 cause 3.1 is normally not considered Core
+    _this->gl_config.major_version = 3;
+    _this->gl_config.minor_version = 2;
+    _this->gl_config.profile_mask = SDL_GL_CONTEXT_PROFILE_CORE;
+
     return context;
 }
 
